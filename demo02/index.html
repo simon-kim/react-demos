@@ -20,5 +20,21 @@
         document.getElementById('example')
       );
     </script>
+    <br>
+    <div id="example2"></div>
+    <script type="text/jsx">
+      var family = ['Simon', 'Jasmine', 'Blair'];
+
+      React.render(
+        <div>
+        {
+          family.map(function (name) {
+            return <div>Hello, {name}!</div>
+          })
+        }
+        </div>,
+        document.getElementById('example2')
+      );
+    </script>
   </body>
 </html>
