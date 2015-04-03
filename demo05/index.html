@@ -5,6 +5,8 @@
     <script src="../build/JSXTransformer.js"></script>
   </head>
   <body>
+    <div id="example"></div>
+    <div id="example2"></div>
     <script type="text/jsx">
       var NotesList = React.createClass({
         render: function() {
@@ -25,9 +27,32 @@
           <span>hello</span>
           <span>world</span>
         </NotesList>,
-        document.body
+        document.getElementById('example')
+      );
+
+      var NotesList2 = React.createClass({
+        render: function() {
+          return (
+            <ol>
+              {
+                this.props.children.map(function (child) {
+                  return <li>{child}</li>
+                })
+              }
+            </ol>
+          );
+        }
+      });
+
+      React.render(
+        <NotesList2>
+          <span>my</span>
+          <span>name</span>
+          <span>is</span>
+          <span>simon</span>
+        </NotesList2>,
+        document.getElementById('example2')
       );
     </script>
   </body>
 </html>
-
