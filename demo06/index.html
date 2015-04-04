@@ -6,6 +6,7 @@
   </head>
   <body>
     <div id="example"></div>
+    <div id="example2"></div>
     <script type="text/jsx">
 var MyComponent = React.createClass({
   handleClick: function() {
@@ -21,9 +22,28 @@ var MyComponent = React.createClass({
   }
 });
 
+var MyComponent2 = React.createClass({
+  handleClick2: function() {
+    React.findDOMNode(this.refs.myTextInput2).focus();
+  },
+  render: function() {
+    return (
+      <div>
+        <input type="text" ref="myTextInput2" />
+        <input type="button" value="Focus the text input" onClick={this.handleClick2} />
+      </div>
+    );
+  }
+});
+
 React.render(
   <MyComponent />,
   document.getElementById('example')
+);
+
+React.render(
+  <MyComponent2 />,
+  document.getElementById('example2')
 );
     </script>
   </body>
