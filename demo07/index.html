@@ -6,6 +6,7 @@
   </head>
   <body>
     <div id="example"></div>
+    <div id="example2"></div>
     <script type="text/jsx">
 var LikeButton = React.createClass({
   getInitialState: function() {
@@ -24,11 +25,32 @@ var LikeButton = React.createClass({
   }
 });
 
+var DislikeButton = React.createClass({
+  getInitialState: function() {
+    return {disliked: false};
+  },
+  handleClick: function(event) {
+    this.setState({disliked: !this.state.disliked});
+  },
+  render: function() {
+    var text = this.state.disliked ? 'dislike' : 'liked';
+    return (
+      <p onClick={this.handleClick}>
+        You {text} this. Click to toggle.
+      </p>
+    );
+  }
+});
+
 React.render(
   <LikeButton />,
   document.getElementById('example')
 );
+
+React.render(
+  <DislikeButton />,
+  document.getElementById('example2')
+);
     </script>
   </body>
 </html>
-
