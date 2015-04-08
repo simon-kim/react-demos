@@ -24,7 +24,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div>
-        <button onClick={this.handleClick} disabled={this.state.disabled}>Add Item</button>
+        <button onClick={this.handleClick} disabled={this.state.disabled}>Add Item!</button>
         <ul>
         {
           this.state.items.map(function(item) {
